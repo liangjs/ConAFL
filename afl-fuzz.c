@@ -507,13 +507,14 @@ static void bind_to_free_cpu(void) {
   if (sched_setaffinity(0, sizeof(c), &c))
     PFATAL("sched_setaffinity failed");
 
+  /*
   struct sched_param param;
   int max=sched_get_priority_max(SCHED_FIFO);
   int min=sched_get_priority_min(SCHED_FIFO);
   param.sched_priority=(int)(min+max)/2;
   if(sched_setscheduler(0, SCHED_FIFO, &param)==-1)
     PFATAL("Son: cannot set schedule\n");
-
+  */
 }
 
 #endif /* HAVE_AFFINITY */
